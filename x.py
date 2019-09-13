@@ -78,10 +78,7 @@ def build(release=False):
                    silent=True,
                    cwd="vendor/hedera-sdk-c")
 
-            if 'musl' in target:
-                cc = 'musl-gcc'
-            else:
-                cc = f"{prefix[target]}gcc"
+            cc = f"{prefix[target]}gcc"
 
             profile = "--release" if release else ''
             sh(f"cargo build --target {target} {profile}",
@@ -97,7 +94,7 @@ def build(release=False):
                    cwd=f"vendor/hedera-sdk-c/target/{target}/release", silent=True)
 
             elif target.endswith("-musl"):
-                sh(f"strip --strip-unneeded -d -x {artifact[target]}",
+                sh(f"{prefix[target]}strip --strip-unneeded -d -x {artifact[target]}",
                    cwd=f"vendor/hedera-sdk-c/target/{target}/release")
 
             else:

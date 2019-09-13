@@ -5,3 +5,5 @@ require (
 	github.com/mattn/go-pointer v0.0.0-20180825124634-49522c3f3791
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
 )
+
+go 1.13

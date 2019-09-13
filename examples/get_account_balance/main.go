@@ -10,7 +10,7 @@ func main() {
 	// Target account to get the balance for
 	accountID := hedera.AccountID{Account: 2}
 
-	client, err := hedera.Dial("testnet.hedera.com:50003")
+	client, err := hedera.Dial("0.testnet.hedera.com:50211")
 	if err != nil {
 		panic(err)
 	}

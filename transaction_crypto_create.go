@@ -33,3 +33,8 @@ func (tx TransactionCryptoCreate) Node(id AccountID) TransactionCryptoCreate {
 func (tx TransactionCryptoCreate) Memo(memo string) TransactionCryptoCreate {
 	return TransactionCryptoCreate{tx.transaction.Memo(memo)}
 }
+
+func (tx TransactionCryptoCreate) AutoRenew(period Duration) TransactionCryptoCreate {
+	C.hedera_transaction__crypto_create__set_auto_renew_period(tx.inner, cDuration(period))
+	return tx
+}

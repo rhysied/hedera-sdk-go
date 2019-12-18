@@ -45,6 +45,7 @@ func main() {
 	transaction, err := client.CreateAccount().
 		Key(public).
 		InitialBalance(0).
+		AutoRenew(hedera.Duration{Seconds:7890000}). //7890000 is the current default (~90 days)
 		Operator(operatorAccountID).
 		Node(nodeAccountID).
 		Memo("[test] hedera-sdk-go v2").
